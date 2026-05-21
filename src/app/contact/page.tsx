@@ -1,0 +1,214 @@
+"use client";
+
+import { useState } from "react";
+import Navbar from "../components/Navbar"; // Adjust to ../components/Navbar if you aren't using aliases
+import Footer from "../components/Footer"; // Adjust to ../components/Footer if you aren't using aliases
+import { motion } from "framer-motion";
+import { MapPin, Phone, Mail, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
+
+export default function Contact() {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // This triggers a sleek success state instead of a jarring page reload
+    setIsSubmitted(true);
+    setTimeout(() => setIsSubmitted(false), 5000); 
+  };
+
+  return (
+    <main className="bg-neutral-950 min-h-screen selection:bg-cyan-400/30">
+      <Navbar />
+
+      <section className="relative pt-40 pb-24 md:pt-52 md:pb-32 px-6 md:px-12 overflow-hidden">
+        {/* Subtle background glow */}
+        <div className="absolute top-20 right-1/4 w-[600px] h-[600px] bg-cyan-900/10 blur-[120px] rounded-full pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          
+          {/* Header */}
+          <div className="mb-16 md:mb-24 text-center md:text-left">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-5xl md:text-7xl font-apple font-semibold tracking-tighter text-white mb-6"
+            >
+              Let's cross borders <br className="hidden md:block" />
+              <span className="text-white/40">together.</span>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+              className="text-lg text-white/60 font-light max-w-xl"
+            >
+              Whether you are an individual traveler or a corporate entity, our team is ready to streamline your immigration journey.
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+            
+            {/* Left Column: Contact Details */}
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              className="space-y-12"
+            >
+              {/* Detail Block */}
+              <div className="flex items-start gap-6 group">
+                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/10 group-hover:border-cyan-400/50 transition-all duration-300">
+                  <MapPin className="w-5 h-5 text-cyan-400" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-apple font-medium text-white mb-2">Headquarters</h3>
+                  <p className="text-white/60 font-light leading-relaxed max-w-sm">
+                    110, First Floor, Plot No 23, <br />
+                    Parmesh Tower, Karkardooma Community Center, <br />
+                    Delhi - 110092
+                  </p>
+                </div>
+              </div>
+
+              {/* Detail Block */}
+              <div className="flex items-start gap-6 group">
+                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/10 group-hover:border-cyan-400/50 transition-all duration-300">
+                  <Phone className="w-5 h-5 text-cyan-400" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-apple font-medium text-white mb-2">Direct Line</h3>
+                  <a href="tel:+919899695814" className="text-white/60 hover:text-white font-light leading-relaxed transition-colors">
+                    +91-9899695814
+                  </a>
+                </div>
+              </div>
+
+              {/* Detail Block */}
+              <div className="flex items-start gap-6 group">
+                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/10 group-hover:border-cyan-400/50 transition-all duration-300">
+                  <Mail className="w-5 h-5 text-cyan-400" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-apple font-medium text-white mb-2">Digital Inquiry</h3>
+                  <a href="mailto:conquestvisa@gmail.com" className="text-white/60 hover:text-white font-light leading-relaxed transition-colors block mb-1">
+                    conquestvisa@gmail.com
+                  </a>
+                  <a href="https://instagram.com/conquestvisa" target="_blank" rel="noreferrer" className="text-white/40 hover:text-cyan-400 font-light text-sm transition-colors">
+                    Instagram: @conquestvisa
+                  </a>
+                </div>
+              </div>
+
+              {/* Detail Block */}
+              <div className="flex items-start gap-6 group">
+                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/10 group-hover:border-cyan-400/50 transition-all duration-300">
+                  <Clock className="w-5 h-5 text-cyan-400" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-apple font-medium text-white mb-2">Support Hours</h3>
+                  <p className="text-white/60 font-light leading-relaxed">
+                    24/7 Priority Customer Support <br />
+                    for ongoing applications.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Column: Contact Form */}
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+            >
+              <div className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-10 backdrop-blur-md relative overflow-hidden">
+                
+                {isSubmitted ? (
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="flex flex-col items-center justify-center text-center h-full min-h-[400px]"
+                  >
+                    <CheckCircle2 className="w-16 h-16 text-cyan-400 mb-6" />
+                    <h3 className="text-2xl font-apple font-medium text-white mb-4">Request Received</h3>
+                    <p className="text-white/60 font-light">
+                      One of our visa specialists will review your details and contact you shortly.
+                    </p>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label className="text-xs font-medium tracking-wider uppercase text-white/50">First Name</label>
+                        <input 
+                          type="text" 
+                          required
+                          className="w-full bg-neutral-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/50 transition-all font-light placeholder:text-white/20"
+                          placeholder="John"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-xs font-medium tracking-wider uppercase text-white/50">Last Name</label>
+                        <input 
+                          type="text" 
+                          required
+                          className="w-full bg-neutral-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/50 transition-all font-light placeholder:text-white/20"
+                          placeholder="Doe"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-xs font-medium tracking-wider uppercase text-white/50">Email Address</label>
+                      <input 
+                        type="email" 
+                        required
+                        className="w-full bg-neutral-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/50 transition-all font-light placeholder:text-white/20"
+                        placeholder="john@example.com"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-xs font-medium tracking-wider uppercase text-white/50">Inquiry Type</label>
+                      <select 
+                        required
+                        className="w-full bg-neutral-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/50 transition-all font-light appearance-none"
+                      >
+                        <option value="" disabled selected className="bg-neutral-900">Select a service...</option>
+                        <option value="tourist" className="bg-neutral-900">Tourist & Visitor Visa</option>
+                        <option value="student" className="bg-neutral-900">Student Visa</option>
+                        <option value="business" className="bg-neutral-900">Business & Work Visa</option>
+                        <option value="other" className="bg-neutral-900">Other Services (Ticketing, Hotel, etc.)</option>
+                      </select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-xs font-medium tracking-wider uppercase text-white/50">Message</label>
+                      <textarea 
+                        rows={4}
+                        required
+                        className="w-full bg-neutral-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/50 transition-all font-light placeholder:text-white/20 resize-none"
+                        placeholder="Tell us about your destination and timeline..."
+                      />
+                    </div>
+
+                    <button 
+                      type="submit"
+                      className="w-full bg-white text-black font-medium tracking-wide py-4 rounded-xl hover:bg-cyan-400 hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] transition-all duration-300 flex items-center justify-center gap-2 group"
+                    >
+                      Submit Application
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </form>
+                )}
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
