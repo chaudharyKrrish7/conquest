@@ -1,6 +1,9 @@
 import Navbar from "./components/Navbar";
 import Pricing from "./components/Pricing";
 import Testimonials from "./components/Testimonials";
+import Process from "./components/Process";
+import Faq from "./components/Faq";
+import Footer from "./components/Footer";
 import { ShieldCheck, TrendingUp, CreditCard, FileText } from "lucide-react";
 
 export default function Home() {
@@ -77,6 +80,17 @@ export default function Home() {
 
       <div className="relative z-20">
         <Testimonials />
+      </div>
+
+      <div className="relative z-20">
+        <Process />
+      </div>
+
+      <div className="relative z-20">
+        <Faq />
+      </div>
+      <div className="relative z-20">
+        <Footer />
       </div>
     </main>
   );
