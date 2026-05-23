@@ -3,30 +3,30 @@ export default function Pricing() {
     {
       country: "United States",
       services: [
-        { type: "Tourist Visa", scope: "From Scratch", price: "40,000", notes: "" },
-        { type: "Tourist Visa", scope: "Appointment Only (Any/Specific Location)", price: "25,000", notes: "" },
-        { type: "Student Visa", scope: "From Scratch", price: "40,000", notes: "" },
-        { type: "Student Visa", scope: "Appointment Only", price: "25,000", notes: "" },
+        { type: "Tourist Visa", scope: "From Scratch", price: "Custom Quote", notes: "Comprehensive package" },
+        { type: "Tourist Visa", scope: "Appointment Only (Any/Specific)", price: "Custom Quote", notes: "Location specific available" },
+        { type: "Student Visa", scope: "From Scratch", price: "Custom Quote", notes: "F-1/M-1 categories" },
+        { type: "Student Visa", scope: "Appointment Only", price: "Custom Quote", notes: "Expedited options available" },
       ],
     },
     {
       country: "United Kingdom",
       services: [
-        { type: "Student Visa", scope: "Standard Processing", price: "10,000", notes: "" },
-        { type: "Standard Visa", scope: "Standard Processing", price: "5,000", notes: "Excludes visa fees & travel insurance" },
+        { type: "Student Visa", scope: "Standard Processing", price: "On Request", notes: "Tier 4 assistance" },
+        { type: "Standard Visa", scope: "Standard Processing", price: "On Request", notes: "Excludes gov fees & insurance" },
       ],
     },
     {
       country: "Canada & Australia",
       services: [
-        { type: "Canada Tourist & Student", scope: "Standard Processing", price: "5,000", notes: "Excludes visa fee" },
-        { type: "Australia Student Visa", scope: "Standard Processing", price: "10,000", notes: "" },
+        { type: "Canada Tourist & Student", scope: "Standard Processing", price: "Custom Quote", notes: "Excludes gov fee" },
+        { type: "Australia Student Visa", scope: "Standard Processing", price: "Custom Quote", notes: "Subclass 500 support" },
       ],
     },
     {
       country: "Schengen Area",
       services: [
-        { type: "Schengen Visa", scope: "Standard Processing", price: "3,000", notes: "Excludes travel insurance, hotel & dummy ticket" },
+        { type: "Schengen Visa", scope: "Standard Processing", price: "On Request", notes: "Excludes insurance & bookings" },
       ],
     },
   ];
@@ -37,11 +37,11 @@ export default function Pricing() {
         {/* Section Header */}
         <div className="mb-20 max-w-2xl">
           <h2 className="text-3xl md:text-5xl font-apple font-semibold tracking-tighter text-white mb-6">
-            Transparent pricing. <br />
-            <span className="text-white/50">No hidden borders.</span>
+            Service packages. <br />
+            <span className="text-white/50">Tailored to your journey.</span>
           </h2>
           <p className="text-white/60 font-light text-lg leading-relaxed">
-            Our fee structure is designed to be completely transparent. Please note that travel insurance is priced dynamically as per your specific itinerary.
+            We offer comprehensive, end-to-end assistance for every major destination. Our consulting fees are customized based on the complexity of your specific case.
           </p>
         </div>
 
@@ -58,7 +58,7 @@ export default function Pricing() {
                 <div className="hidden md:grid grid-cols-12 gap-4 px-4 pb-3 text-xs uppercase tracking-[0.15em] text-white/40 font-semibold">
                   <div className="col-span-4">Visa Type</div>
                   <div className="col-span-4">Service Scope</div>
-                  <div className="col-span-2">Fee (INR)</div>
+                  <div className="col-span-2">Investment</div>
                   <div className="col-span-2">Additional Notes</div>
                 </div>
 
@@ -74,8 +74,8 @@ export default function Pricing() {
                     <div className="col-span-4 text-white/60 font-light text-sm md:text-base">
                       {item.scope}
                     </div>
-                    <div className="col-span-2 text-white font-apple font-medium tracking-wide">
-                      ₹{item.price}
+                    <div className="col-span-2 text-cyan-400 font-apple font-medium tracking-wide text-sm">
+                      {item.price}
                     </div>
                     <div className="col-span-2 text-white/40 text-xs md:text-sm font-light italic">
                       {item.notes || "—"}
@@ -91,15 +91,15 @@ export default function Pricing() {
         <div className="mt-24 text-center md:text-left flex flex-col md:flex-row items-center justify-between bg-white/5 border border-white/10 rounded-3xl p-10 md:p-16 backdrop-blur-sm">
           <div className="max-w-xl mb-8 md:mb-0">
             <h3 className="text-2xl md:text-4xl font-apple font-medium text-white mb-4">
-              Ready to start your journey?
+              Ready to request a quote?
             </h3>
             <p className="text-white/60 font-light">
-              Get in touch with our experts to begin your hassle-free visa application today.
+              Get in touch with our experts to receive a customized consultation for your specific visa needs.
             </p>
           </div>
-          <button className="bg-white text-black px-10 py-4 rounded-full font-medium tracking-wide hover:bg-neutral-200 hover:scale-105 transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.1)]">
-            Start Approaching
-          </button>
+          <a href="/contact" className="inline-block bg-white text-black px-10 py-4 rounded-full font-medium tracking-wide hover:bg-cyan-400 hover:scale-105 transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.1)]">
+            Start Consultation
+          </a>
         </div>
       </div>
     </section>
