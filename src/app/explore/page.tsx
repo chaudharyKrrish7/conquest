@@ -4,9 +4,9 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Clock, CreditCard, FileCheck, HelpCircle, ArrowRight, PlaneTakeoff } from "lucide-react";
+import { X, Clock, FileCheck, HelpCircle, ArrowRight, PlaneTakeoff } from "lucide-react";
 
-// The Data Structure
+// Data completely scrubbed of all pricing/fee structures
 const destinations = [
   {
     id: "canada",
@@ -15,7 +15,6 @@ const destinations = [
     image: "https://images.unsplash.com/photo-1517935706615-2717063c2225?q=80&w=2071&auto=format&fit=crop", 
     type: "Tourist & Student Visas",
     time: "30 - 45 Days",
-    fees: "₹5,000 (Consultation) + Gov Fees",
     requirements: [
       "Valid Indian Passport (Min. 6 months validity)",
       "Proof of Financial Support (6 months bank statements)",
@@ -35,7 +34,6 @@ const destinations = [
     image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop", 
     type: "Employment Visa (Residence)",
     time: "10 - 15 Days",
-    fees: "Varies (Typically sponsored by Employer)",
     requirements: [
       "Original Passport with at least 6 months validity",
       "Passport-size photographs (White background)",
@@ -44,8 +42,8 @@ const destinations = [
       "Passed UAE Medical Fitness Test"
     ],
     faqs: [
-      { q: "Who pays for the work visa?", a: "Under UAE labor law, the employer is legally responsible for all visa and sponsorship fees." },
-      { q: "Is a medical test mandatory?", a: "Yes, you must pass a blood test and chest X-ray upon arrival before the visa is stamped." }
+      { q: "Who handles the visa sponsorship?", a: "Under UAE labor law, the employer acts as your sponsor and manages the residence application." },
+      { q: "Is a medical test mandatory?", a: "Yes, you must pass a medical fitness test upon arrival before the visa is officially stamped." }
     ]
   },
   {
@@ -55,10 +53,9 @@ const destinations = [
     image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2070&auto=format&fit=crop", 
     type: "Tier 4 (General) Student",
     time: "3 Weeks (Standard Processing)",
-    fees: "₹10,000 (Consultation) + £490 Gov Fee",
     requirements: [
       "CAS (Confirmation of Acceptance for Studies) Reference Number",
-      "Proof of funds to cover course fees and living costs",
+      "Proof of funds to cover tuition and living costs",
       "Valid Passport",
       "English Language Proficiency (IELTS/PTE)",
       "ATAS Certificate (if applicable for your course)"
@@ -77,6 +74,7 @@ export default function Explore() {
 
   return (
     <main className="bg-neutral-950 min-h-screen selection:bg-cyan-400/30">
+      
       {/* Hide navbar when modal is open for full immersion */}
       <div className={`transition-opacity duration-500 ${activeCard ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
         <Navbar />
@@ -84,13 +82,13 @@ export default function Explore() {
 
       <section className="pt-40 pb-24 md:pt-48 md:pb-32 px-6 md:px-12 max-w-7xl mx-auto">
         
-        {/* Header */}
+        {/* Header - Text updated to remove fee mentions */}
         <div className="mb-16 text-center md:text-left">
           <h1 className="text-5xl md:text-7xl font-apple font-semibold tracking-tighter text-white mb-6">
             Explore <span className="text-white/40">Destinations.</span>
           </h1>
           <p className="text-lg text-white/60 font-light max-w-xl">
-            Select a pathway below to view specific requirements, timelines, and processing fees.
+            Select a pathway below to view specific requirements and processing timelines.
           </p>
         </div>
 
@@ -107,7 +105,6 @@ export default function Explore() {
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                 style={{ backgroundImage: `url(${dest.image})` }}
               />
-              {/* Dark Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
               
               <div className="absolute bottom-0 left-0 p-8 w-full">
@@ -127,7 +124,6 @@ export default function Explore() {
         </div>
       </section>
 
-      {/* Show footer only if no card is active */}
       {!activeCard && <Footer />}
 
       {/* FULL SCREEN IMMERSIVE OVERLAY */}
@@ -135,7 +131,6 @@ export default function Explore() {
         {activeCard && activeData && (
           <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-auto">
             
-            {/* Backdrop Blur */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -144,12 +139,10 @@ export default function Explore() {
               className="absolute inset-0 bg-black/60 backdrop-blur-xl"
             />
 
-            {/* Expanded Content Dashboard */}
             <motion.div 
               layoutId={`card-${activeData.id}`}
               className="relative w-full h-full md:w-[90vw] md:h-[90vh] md:rounded-[40px] overflow-hidden bg-neutral-950 flex flex-col shadow-[0_0_100px_rgba(0,0,0,0.8)]"
             >
-              {/* Close Button */}
               <button 
                 onClick={() => setActiveCard(null)}
                 className="absolute top-6 right-6 md:top-8 md:right-8 z-50 w-12 h-12 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all"
@@ -157,7 +150,6 @@ export default function Explore() {
                 <X className="w-6 h-6" />
               </button>
 
-              {/* Top Banner Image Area */}
               <div className="relative h-[30vh] md:h-[40vh] shrink-0">
                 <div 
                   className="absolute inset-0 bg-cover bg-center"
@@ -175,11 +167,10 @@ export default function Explore() {
                 </div>
               </div>
 
-              {/* Scrollable Content Area */}
               <div className="flex-1 overflow-y-auto p-8 md:p-12 hide-scrollbar">
                 
-                {/* 3 Key Metrics Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+                {/* 2 Key Metrics Grid (Pricing removed) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
                   <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-start gap-4">
                     <PlaneTakeoff className="w-6 h-6 text-cyan-400 shrink-0" />
                     <div>
@@ -194,19 +185,10 @@ export default function Explore() {
                       <p className="text-white font-medium">{activeData.time}</p>
                     </div>
                   </div>
-                  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-start gap-4">
-                    <CreditCard className="w-6 h-6 text-cyan-400 shrink-0" />
-                    <div>
-                      <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Estimated Fees</p>
-                      <p className="text-white font-medium">{activeData.fees}</p>
-                    </div>
-                  </div>
                 </div>
 
-                {/* Split Layout for Reqs and FAQs */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                   
-                  {/* Requirements List */}
                   <div>
                     <h3 className="text-2xl font-apple font-medium text-white mb-6 flex items-center gap-3">
                       <FileCheck className="w-6 h-6 text-cyan-400" />
@@ -222,7 +204,6 @@ export default function Explore() {
                     </ul>
                   </div>
 
-                  {/* FAQs */}
                   <div>
                     <h3 className="text-2xl font-apple font-medium text-white mb-6 flex items-center gap-3">
                       <HelpCircle className="w-6 h-6 text-cyan-400" />
@@ -240,11 +221,10 @@ export default function Explore() {
 
                 </div>
                 
-                {/* CTA inside modal */}
                 <div className="mt-16 text-center border-t border-white/10 pt-12">
                    <p className="text-white/60 font-light mb-6">Ready to begin your {activeData.title} application?</p>
                    <a href="/contact" className="inline-block bg-white text-black px-10 py-4 rounded-full font-medium tracking-wide hover:bg-cyan-400 transition-colors duration-300">
-                     Start Process Now
+                     Request Consultation
                    </a>
                 </div>
 
