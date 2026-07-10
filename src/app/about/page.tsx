@@ -41,9 +41,7 @@ export default function About() {
     <main className="bg-neutral-950 min-h-screen selection:bg-cyan-400/30">
       <Navbar />
 
-      {/* 1. HERO SECTION */}
       <section className="relative pt-40 pb-20 md:pt-52 md:pb-32 px-6 md:px-12 overflow-hidden">
-        {/* Subtle background glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyan-900/20 blur-[120px] rounded-full pointer-events-none" />
         
         <div className="max-w-4xl mx-auto relative z-10 text-center">
@@ -65,12 +63,11 @@ export default function About() {
           >
             Conquest Visa and Immigration Services is a one-stop destination for your global ambitions. 
             We are dedicated to delivering fast, reliable, and transparent services to travelers, students, 
-            business professionals, and families.
+            business professionals, and families. Whether it’s a tourist visa, a student visa for the United States and UK, a Canada Visa, or a Schengen visa for Europe – we handle it all smoothly and professionally.
           </motion.p>
         </div>
       </section>
 
-      {/* 2. THE LEGACY (STATS) */}
       <section className="border-y border-white/10 bg-white/[0.02]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center divide-x divide-white/10">
@@ -94,7 +91,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* 3. CORPORATE TRUST MARQUEE */}
       <section className="py-24 md:py-32 overflow-hidden border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-12 text-center">
           <h2 className="text-sm uppercase tracking-[0.2em] text-white/40 font-semibold">
@@ -103,11 +99,9 @@ export default function About() {
         </div>
         
         <div className="relative flex overflow-x-hidden w-full group">
-          {/* Gradient Masks for smooth fading on edges */}
           <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-neutral-950 to-transparent z-10" />
           <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-neutral-950 to-transparent z-10" />
 
-          {/* Marquee Track */}
           <div className="animate-marquee whitespace-nowrap flex items-center">
             {[...corporateClients, ...corporateClients].map((client, index) => (
               <span 
@@ -121,7 +115,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* 4. COMPREHENSIVE SERVICES */}
       <section className="py-24 md:py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16">
@@ -152,17 +145,15 @@ export default function About() {
         </div>
       </section>
 
-      {/* 5. CONTACT / LOCATION */}
       <section className="py-24 px-6 md:px-12 bg-white/[0.02]">
         <div className="max-w-4xl mx-auto text-center border border-white/10 rounded-3xl p-10 md:p-16 backdrop-blur-sm relative overflow-hidden">
-          {/* Subtle glow inside the card */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-900/10 blur-[80px] rounded-full pointer-events-none" />
           
           <h2 className="text-2xl md:text-4xl font-apple font-medium text-white mb-4 relative z-10">
             Headquarters
           </h2>
-          <p className="text-white/60 font-light text-lg mb-8 max-w-md mx-auto relative z-10">
-            110, First Floor, Plot No 23, Parmesh Tower, Karkardooma Community Center, Delhi - 110092
+          <p className="text-white/60 font-light text-lg mb-8 max-w-lg mx-auto relative z-10">
+            AFF-188, First Floor, Gaur World Smart Street, near Blue Sapphire Mall, Sector 16, Greater Noida West
           </p>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 relative z-10">

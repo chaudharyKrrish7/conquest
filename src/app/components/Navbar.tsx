@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const searchData = [
   { name: "Canada Visa", type: "Tourist & Student", href: "/explore" },
-  { name: "Dubai Visa", type: "Work & Employment", href: "/explore" },
   { name: "UK Visa", type: "Student (Tier 4)", href: "/explore" },
   { name: "US Tourist Visa", type: "Visitor", href: "/contact" },
   { name: "US Student Visa", type: "F-1", href: "/contact" },
@@ -63,7 +62,6 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         
-        {/* Brand */}
         <Link 
           href="/" 
           onClick={() => setIsMobileMenuOpen(false)}
@@ -72,7 +70,6 @@ export default function Navbar() {
           Conquest Visa
         </Link>
 
-        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-10 text-sm font-light tracking-wide text-white/80">
           <Link href="/about" className="hover:text-white transition-colors">
             About Us
@@ -85,7 +82,6 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Desktop Search */}
         <div className="relative group hidden md:block" ref={searchRef}>
           <div className="relative z-10">
             <input
@@ -102,7 +98,6 @@ export default function Navbar() {
             <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50 group-focus-within:text-cyan-400 transition-colors" />
           </div>
 
-          {/* Desktop Predictive Search Dropdown */}
           {isSearchOpen && searchQuery.length > 0 && (
             <div className="absolute top-full mt-4 right-0 w-80 bg-neutral-900 border border-white/10 rounded-2xl p-2 shadow-2xl backdrop-blur-xl animate-fade-in-up">
               {filteredResults.length > 0 ? (
@@ -135,7 +130,6 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Mobile Hamburger Toggle */}
         <button 
           className="md:hidden relative z-50 text-white p-2 focus:outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -144,7 +138,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu Dropdown (Fixed Stacking) */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 
@@ -155,7 +148,6 @@ export default function Navbar() {
             className="absolute top-full left-0 w-full bg-neutral-950/95 backdrop-blur-xl md:hidden overflow-hidden border-t border-white/10"
           >
             <div className="px-6 py-8 h-full overflow-y-auto pb-32">
-              {/* Mobile Search */}
               <div className="relative mb-10">
                 <input
                   type="text"
@@ -166,7 +158,6 @@ export default function Navbar() {
                 />
                 <Search className="absolute right-5 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50" />
                 
-                {/* Mobile Search Results */}
                 {searchQuery.length > 0 && (
                   <div className="mt-4 bg-white/5 border border-white/10 rounded-2xl p-2 max-h-60 overflow-y-auto hide-scrollbar">
                     {filteredResults.length > 0 ? (
@@ -193,7 +184,6 @@ export default function Navbar() {
                 )}
               </div>
 
-              {/* Mobile Nav Links */}
               <div className="flex flex-col gap-6 text-2xl font-apple font-medium tracking-tight">
                 <Link 
                   href="/about" 

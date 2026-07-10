@@ -4,39 +4,32 @@ import Testimonials from "./components/Testimonials";
 import Process from "./components/Process";
 import Faq from "./components/Faq";
 import Footer from "./components/Footer";
-import { ShieldCheck, TrendingUp, CreditCard, FileText } from "lucide-react";
+import { ShieldCheck, TrendingUp, Users, FileText } from "lucide-react";
 
 export default function Home() {
   const benefits = [
     { icon: ShieldCheck, text: "100% Genuine Visa Guidance" },
     { icon: TrendingUp, text: "High Visa Success Rate" },
-    { icon: CreditCard, text: "Affordable and Transparent Pricing" },
+    { icon: Users, text: "Dedicated Visa Consultation" }, 
     { icon: FileText, text: "Hassle-Free Documentation" },
   ];
 
   return (
-    <main className="bg-neutral-950 min-h-screen">
+    <main className="bg-neutral-950 min-h-screen selection:bg-cyan-400/30">
       <Navbar />
       
-      {/* 1. HERO WRAPPER - Isolates the background image */}
-      <section className="relative h-screen w-full flex items-center">
-        
-        {/* Background Image & Gradient Overlay */}
+      {/* 1. HERO WRAPPER */}
+      <section className="relative h-screen w-full flex items-center border-b border-white/10">
         <div className="absolute inset-0 z-0">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ 
-              backgroundImage: "url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop')",
-            }}
+            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop')" }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/70" />
         </div>
 
-        {/* Hero Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
           <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center pt-20">
-            
-            {/* Left Column: Headline & Quote */}
             <div className="max-w-xl"> 
               <h1 className="text-5xl md:text-7xl font-apple font-semibold tracking-tighter leading-tight text-white mb-6">
                 Borders disappear <br />
@@ -48,7 +41,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Right Column: Trust Pillars */}
             <div className="flex lg:justify-end">
               <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl max-w-md w-full">
                 <h2 className="text-sm uppercase tracking-[0.2em] text-white/50 mb-6 font-semibold">
@@ -68,27 +60,31 @@ export default function Home() {
                 </ul>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* 2. PRICING SECTION - Now safely below the Hero */}
+      {/* 2. PRICING SECTION */}
       <div className="relative z-20">
         <Pricing />
       </div>
 
+      {/* 3. TESTIMONIALS */}
       <div className="relative z-20">
         <Testimonials />
       </div>
 
+      {/* 4. PROCESS */}
       <div className="relative z-20">
         <Process />
       </div>
 
+      {/* 5. FAQ SECTION */}
       <div className="relative z-20">
         <Faq />
       </div>
+
+      {/* 6. FOOTER */}
       <div className="relative z-20">
         <Footer />
       </div>

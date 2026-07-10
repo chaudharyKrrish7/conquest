@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Clock, FileCheck, HelpCircle, ArrowRight, PlaneTakeoff } from "lucide-react";
 
-// Data completely scrubbed of all pricing/fee structures
 const destinations = [
   {
     id: "canada",
@@ -25,25 +24,6 @@ const destinations = [
     faqs: [
       { q: "Is biometrics mandatory?", a: "Yes, almost all Indian applicants must provide biometrics at a local VFS center." },
       { q: "Can I work on a tourist visa?", a: "No, working on a visitor visa is strictly prohibited under Canadian law." }
-    ]
-  },
-  {
-    id: "dubai",
-    title: "Dubai Visa",
-    subtitle: "Work & Employment",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop", 
-    type: "Employment Visa (Residence)",
-    time: "10 - 15 Days",
-    requirements: [
-      "Original Passport with at least 6 months validity",
-      "Passport-size photographs (White background)",
-      "Signed Job Offer Letter / Employment Contract",
-      "MOHRE (Ministry of Human Resources) Approval",
-      "Passed UAE Medical Fitness Test"
-    ],
-    faqs: [
-      { q: "Who handles the visa sponsorship?", a: "Under UAE labor law, the employer acts as your sponsor and manages the residence application." },
-      { q: "Is a medical test mandatory?", a: "Yes, you must pass a medical fitness test upon arrival before the visa is officially stamped." }
     ]
   },
   {
@@ -75,14 +55,11 @@ export default function Explore() {
   return (
     <main className="bg-neutral-950 min-h-screen selection:bg-cyan-400/30">
       
-      {/* Hide navbar when modal is open for full immersion */}
       <div className={`transition-opacity duration-500 ${activeCard ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
         <Navbar />
       </div>
 
       <section className="pt-40 pb-24 md:pt-48 md:pb-32 px-6 md:px-12 max-w-7xl mx-auto">
-        
-        {/* Header - Text updated to remove fee mentions */}
         <div className="mb-16 text-center md:text-left">
           <h1 className="text-5xl md:text-7xl font-apple font-semibold tracking-tighter text-white mb-6">
             Explore <span className="text-white/40">Destinations.</span>
@@ -92,8 +69,7 @@ export default function Explore() {
           </p>
         </div>
 
-        {/* The 3 Massive Interactive Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[600px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-[600px] max-w-5xl mx-auto">
           {destinations.map((dest) => (
             <motion.div
               key={dest.id}
@@ -126,11 +102,9 @@ export default function Explore() {
 
       {!activeCard && <Footer />}
 
-      {/* FULL SCREEN IMMERSIVE OVERLAY */}
       <AnimatePresence>
         {activeCard && activeData && (
           <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-auto">
-            
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -168,8 +142,6 @@ export default function Explore() {
               </div>
 
               <div className="flex-1 overflow-y-auto p-8 md:p-12 hide-scrollbar">
-                
-                {/* 2 Key Metrics Grid (Pricing removed) */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
                   <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-start gap-4">
                     <PlaneTakeoff className="w-6 h-6 text-cyan-400 shrink-0" />
@@ -188,7 +160,6 @@ export default function Explore() {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                  
                   <div>
                     <h3 className="text-2xl font-apple font-medium text-white mb-6 flex items-center gap-3">
                       <FileCheck className="w-6 h-6 text-cyan-400" />
@@ -218,7 +189,6 @@ export default function Explore() {
                       ))}
                     </div>
                   </div>
-
                 </div>
                 
                 <div className="mt-16 text-center border-t border-white/10 pt-12">
@@ -227,13 +197,11 @@ export default function Explore() {
                      Request Consultation
                    </a>
                 </div>
-
               </div>
             </motion.div>
           </div>
         )}
       </AnimatePresence>
-
     </main>
   );
 }

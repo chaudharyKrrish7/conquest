@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "../components/Navbar"; // Adjust to ../components/Navbar if you aren't using aliases
-import Footer from "../components/Footer"; // Adjust to ../components/Footer if you aren't using aliases
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
 
@@ -11,7 +11,6 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // This triggers a sleek success state instead of a jarring page reload
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 5000); 
   };
@@ -21,12 +20,10 @@ export default function Contact() {
       <Navbar />
 
       <section className="relative pt-40 pb-24 md:pt-52 md:pb-32 px-6 md:px-12 overflow-hidden">
-        {/* Subtle background glow */}
         <div className="absolute top-20 right-1/4 w-[600px] h-[600px] bg-cyan-900/10 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           
-          {/* Header */}
           <div className="mb-16 md:mb-24 text-center md:text-left">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
@@ -49,14 +46,12 @@ export default function Contact() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             
-            {/* Left Column: Contact Details */}
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
               className="space-y-12"
             >
-              {/* Detail Block */}
               <div className="flex items-start gap-6 group">
                 <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/10 group-hover:border-cyan-400/50 transition-all duration-300">
                   <MapPin className="w-5 h-5 text-cyan-400" />
@@ -64,14 +59,13 @@ export default function Contact() {
                 <div>
                   <h3 className="text-xl font-apple font-medium text-white mb-2">Headquarters</h3>
                   <p className="text-white/60 font-light leading-relaxed max-w-sm">
-                    110, First Floor, Plot No 23, <br />
-                    Parmesh Tower, Karkardooma Community Center, <br />
-                    Delhi - 110092
+                    AFF-188, First Floor, <br />
+                    Gaur World Smart Street, near Blue Sapphire Mall, <br />
+                    Sector 16, Greater Noida West
                   </p>
                 </div>
               </div>
 
-              {/* Detail Block */}
               <div className="flex items-start gap-6 group">
                 <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/10 group-hover:border-cyan-400/50 transition-all duration-300">
                   <Phone className="w-5 h-5 text-cyan-400" />
@@ -84,7 +78,6 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Detail Block */}
               <div className="flex items-start gap-6 group">
                 <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/10 group-hover:border-cyan-400/50 transition-all duration-300">
                   <Mail className="w-5 h-5 text-cyan-400" />
@@ -100,7 +93,6 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Detail Block */}
               <div className="flex items-start gap-6 group">
                 <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/10 group-hover:border-cyan-400/50 transition-all duration-300">
                   <Clock className="w-5 h-5 text-cyan-400" />
@@ -115,14 +107,12 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            {/* Right Column: Contact Form */}
             <motion.div 
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
             >
               <div className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-10 backdrop-blur-md relative overflow-hidden">
-                
                 {isSubmitted ? (
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -172,13 +162,14 @@ export default function Contact() {
                       <label className="text-xs font-medium tracking-wider uppercase text-white/50">Inquiry Type</label>
                       <select 
                         required
+                        defaultValue=""
                         className="w-full bg-neutral-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/50 transition-all font-light appearance-none"
                       >
-                        <option value="" disabled selected className="bg-neutral-900">Select a service...</option>
+                        <option value="" disabled className="bg-neutral-900">Select a service...</option>
                         <option value="tourist" className="bg-neutral-900">Tourist & Visitor Visa</option>
                         <option value="student" className="bg-neutral-900">Student Visa</option>
                         <option value="business" className="bg-neutral-900">Business & Work Visa</option>
-                        <option value="other" className="bg-neutral-900">Other Services (Ticketing, Hotel, etc.)</option>
+                        <option value="other" className="bg-neutral-900">Other Services</option>
                       </select>
                     </div>
 
